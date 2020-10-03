@@ -1,21 +1,12 @@
-import java.util.LinkedList;
-
-public class LinkedListTest {
+public class SimpleArrayTest {
     public static void main(String[] args) {
-        LinkedList<Character> list;
-        list = new LinkedList<Character>() ;
 
         int end = 500000;
+        char[] list = new char[end];
 
-        
-
-        for (var i = 0; i < end; i++) {
-            // list.add( (char) i);
-            list.add((char) (i%26 +97));
+        for(int i = 0; i < list.length; i++){
+            list[i] = (char) (i%26 +97);
         }
-
-        
-
 
         long start = System.currentTimeMillis();
 
@@ -27,7 +18,7 @@ public class LinkedListTest {
         long finish = System.currentTimeMillis();
         long timeElapsed = finish -start;
 
-        System.out.println("Time needed for an LinkedLisr to perform the task with "
+        System.out.println("Time needed for a Simple Array to perform the task with "
         + end+ " elements : "+timeElapsed+ " millisecondes");
 
     }

@@ -7,17 +7,33 @@ public class ArrayListTest {
     
         int end = 500000;
 
-        long start = System.currentTimeMillis();
+        long start1 = System.currentTimeMillis();
+
 
         for (var i = 0; i < end; i++) {
             // list.add( (char) i);
             list.add((char) (i%26 +97));
         }
 
+        long finish1 = System.currentTimeMillis();
+        long timeElapsed1 = finish1 - start1;
+
+        System.out.println(timeElapsed1);
+
+        long start = System.currentTimeMillis();
+
+        String finalString = "";
+        for(char elem : list){
+            finalString += elem;
+        }
+
         long finish = System.currentTimeMillis();
         long timeElapsed = finish -start;
 
-        System.out.println(timeElapsed);
+        System.out.println("Time needed for an ArrayList to perform the task with "
+        + end+ " elements : "+timeElapsed+ " millisecondes");
+        // System.out.println(finalString);
+
 
     }
     
