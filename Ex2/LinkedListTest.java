@@ -1,10 +1,10 @@
-import java.util.ArrayList;
+import java.util.LinkedList;
 
-public class ArrayListTest {
+public class LinkedListTest {
     public static void main(String[] args) {
-        ArrayList<Character> list;
-        list = new ArrayList<Character>();
-    
+        LinkedList<Character> list;
+        list = new LinkedList<Character>() ;
+
         int end = 500000;
 
         long start = System.currentTimeMillis();
@@ -20,5 +20,4 @@ public class ArrayListTest {
         System.out.println(timeElapsed);
 
     }
-    
 }
