@@ -159,6 +159,7 @@ public class PointCP
    * Returns information about the coordinates.
    *
    * @return A String containing information about the coordinates.
+   * 
    */
   public String toString()
   {

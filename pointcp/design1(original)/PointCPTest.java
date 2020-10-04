@@ -87,7 +87,7 @@ public class PointCPTest
     String theInput = "";  // Input information
     
     //Information to be passed to the constructor
-    char coordType = 'A'; // Temporary default, to be set to P or C
+
     double a = 0.0;
     double b = 0.0;
 

@@ -13,15 +13,15 @@ import java.io.*;
  * @author Paul Holden
  * @version July 2000
  */
-public class PointCPTest
+public class PointCPTest4
 {
   //Class methods *****************************************************
 
   /**
-   * This method is responsible for the creation of the PointCP
+   * This method is responsible for the creation of the PointCP4
    * object.  This can be done in two ways; the first, by using the
    * command line and running the program using <code> java 
-   * PointCPTest &lt;coordtype (c/p)&gt; &lt;X/RHO&gt; &lt;Y/THETA&gt;
+   * PointCPTest4 &lt;coordtype (c/p)&gt; &lt;X/RHO&gt; &lt;Y/THETA&gt;
    * </code> and the second by getting the program to prompt the user.
    * If the user does not enter a valid sequence at the command line,
    * the program will prompte him or her.
@@ -33,16 +33,16 @@ public class PointCPTest
    */
   public static void main(String[] args)
   {
-    PointCP point;
+    PointCP4 point;
 
     System.out.println("Cartesian-Polar Coordinates Conversion Program");
 
     // Check if the user input coordinates from the command line
-    // If he did, create the PointCP object from these arguments.
+    // If he did, create the PointCP4 object from these arguments.
     // If he did not, prompt the user for them.
     try
     {
-      point = new PointCP(args[0].toUpperCase().charAt(0), 
+      point = new PointCP4(args[0].toUpperCase().charAt(0), 
         Double.valueOf(args[1]).doubleValue(), 
         Double.valueOf(args[2]).doubleValue());
     }
@@ -63,24 +63,20 @@ public class PointCPTest
         return;
       }
     }
-    System.out.println("\nYou entered:\n" + point);
-    point.convertStorageToCartesian();
-    System.out.println("\nAfter asking to store as Cartesian:\n" + point);
-    point.convertStorageToPolar();
-    System.out.println("\nAfter asking to store as Polar:\n" + point);
+    System.out.println("\nAfter stored:\n" + point);
   }
 
   /**
    * This method obtains input from the user and verifies that
-   * it is valid.  When the input is valid, it returns a PointCP
+   * it is valid.  When the input is valid, it returns a PointCP4
    * object.
    *
-   * @return A PointCP constructed using information obtained 
+   * @return A PointCP4 constructed using information obtained 
    *         from the user.
    * @throws IOException If there is an error getting input from
    *         the user.
    */
-  private static PointCP getInput() throws IOException
+  private static PointCP4 getInput() throws IOException
   {
     byte[] buffer = new byte[1024];  //Buffer to hold byte input
     boolean isOK = false;  // Flag set if input correct
@@ -157,7 +153,7 @@ public class PointCPTest
       //Reset flag so while loop will prompt for other arguments
       isOK = false;
     }
-    //Return a new PointCP object
-    return (new PointCP(coordType, a, b));
+    //Return a new PointCP4 object
+    return (new PointCP4(coordType, a, b));
   }
 }

@@ -11,14 +11,15 @@ import java.io.*;
  * @author Fran&ccedil;ois B&eacute;langer
  * @author Dr Timothy C. Lethbridge
  * @author Paul Holden
+ * @author reimplemented by group armys
  * @version July 2000
  */
-public class PointCPTest
+public class PointCPTest5
 {
   //Class methods *****************************************************
 
   /**
-   * This method is responsible for the creation of the PointCP
+   * This method is responsible for the creation of the PointCP5
    * object.  This can be done in two ways; the first, by using the
    * command line and running the program using <code> java 
    * PointCPTest &lt;coordtype (c/p)&gt; &lt;X/RHO&gt; &lt;Y/THETA&gt;
@@ -31,10 +32,10 @@ public class PointCPTest
    * @param args[1] The value of X or RHO.
    * @param args[2] The value of Y or THETA.
    */
+  
   public static void main(String[] args)
   {
-    PointCP point;
-
+    PointCP5 point;
     System.out.println("Cartesian-Polar Coordinates Conversion Program");
 
     // Check if the user input coordinates from the command line
@@ -42,9 +43,15 @@ public class PointCPTest
     // If he did not, prompt the user for them.
     try
     {
-      point = new PointCP(args[0].toUpperCase().charAt(0), 
-        Double.valueOf(args[1]).doubleValue(), 
-        Double.valueOf(args[2]).doubleValue());
+        if(args[0].toUpperCase().charAt(0) == 'C'){
+            point = new PointCP3( 
+            Double.valueOf(args[1]).doubleValue(), 
+            Double.valueOf(args[2]).doubleValue());
+        }else{
+            point = new PointCP2(
+            Double.valueOf(args[1]).doubleValue(), 
+            Double.valueOf(args[2]).doubleValue());  
+            }
     }
     catch(Exception e)
     {
@@ -63,24 +70,27 @@ public class PointCPTest
         return;
       }
     }
-    System.out.println("\nYou entered:\n" + point);
-    point.convertStorageToCartesian();
-    System.out.println("\nAfter asking to store as Cartesian:\n" + point);
-    point.convertStorageToPolar();
-    System.out.println("\nAfter asking to store as Polar:\n" + point);
+    if(point instanceof PointCP3){
+        System.out.println("\nYou entered Cartesian coordinate:\n" + point);
+        System.out.println("\nAfter asking to compute as Polar:\n" + "[" + point.getRho() + "," + point.getTheta() + "]");
+        
+    }else{
+        System.out.println("\nYou entered Polar coordinate:\n" + point);
+        System.out.println("\nAfter asking to compute as Cartesian:\n" + "(" + point.getX() + "," + point.getY() + ")");
+        }
+
   }
 
   /**
    * This method obtains input from the user and verifies that
-   * it is valid.  When the input is valid, it returns a PointCP
-   * object.
+   * it is valid.  When the input is valid, it returns either PointCP3 or PointCP2 depedning on the type.
    *
    * @return A PointCP constructed using information obtained 
    *         from the user.
    * @throws IOException If there is an error getting input from
    *         the user.
    */
-  private static PointCP getInput() throws IOException
+  private static PointCP5 getInput() throws IOException
   {
     byte[] buffer = new byte[1024];  //Buffer to hold byte input
     boolean isOK = false;  // Flag set if input correct
@@ -104,7 +114,7 @@ public class PointCPTest
           System.out.print("Enter the type of Coordinates you "
             + "are inputting ((C)artesian / (P)olar): ");
         }
-        else // Second and third arguments
+        else // First and Second arguments
         {
           System.out.print("Enter the value of " 
             + (coordType == 'C' 
@@ -157,7 +167,12 @@ public class PointCPTest
       //Reset flag so while loop will prompt for other arguments
       isOK = false;
     }
-    //Return a new PointCP object
-    return (new PointCP(coordType, a, b));
+    //Return a new PointCP3 or PointCP2 object delpending on if it is Polar or Cartiesian
+    
+    if(coordType == 'C'){
+        return (new PointCP3(a, b));
+    }else{
+        return (new PointCP2(a, b));
+        }
   }
 }
