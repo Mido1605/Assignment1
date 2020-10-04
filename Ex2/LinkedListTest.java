@@ -5,17 +5,19 @@ public class LinkedListTest {
         LinkedList<Character> list;
         list = new LinkedList<Character>() ;
 
-        int end = 500000;
+        int end = 2000000;
 
-        
+        long start1 = System.currentTimeMillis();
 
         for (var i = 0; i < end; i++) {
             // list.add( (char) i);
             list.add((char) (i%26 +97));
         }
 
-        
+        long finish1 = System.currentTimeMillis();
+        long timeElapsed1 = finish1 - start1;
 
+        System.out.println(timeElapsed1);
 
         long start = System.currentTimeMillis();
 

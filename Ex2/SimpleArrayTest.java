@@ -1,7 +1,7 @@
 public class SimpleArrayTest {
     public static void main(String[] args) {
 
-        int end = 500000;
+        int end = 2000000;
         char[] list = new char[end];
 
         for(int i = 0; i < list.length; i++){

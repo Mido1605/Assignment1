@@ -5,7 +5,7 @@ public class ArrayListTest {
         ArrayList<Character> list;
         list = new ArrayList<Character>();
     
-        int end = 500000;
+        int end = 2000000;
 
         long start1 = System.currentTimeMillis();
 
