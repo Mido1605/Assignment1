@@ -1,0 +1,45 @@
+Exercice 2:
+
+
+
+
+Number of elements added to the differents data structure : 2000000
+
+
+
+
+	                       LinkedList
+	                                      ArrayList
+	                                                      Array
+	Test 1 (in milliseconds) 
+	                         195876
+	                                      206904
+	                                                      198222
+	Test 2 (in milliseconds)
+	                         201537
+	                                      204833
+	                                                      198989
+	Test 3 (in milliseconds)
+	                         201517
+	                                      205679
+	                                                      200131
+	Test 4 (in milliseconds)
+	                         197354
+	                                      202147
+	                                                      198482
+	Test 5 (in milliseconds)
+	                         201532
+	                                      197310
+	                                                      198766
+	
+
+       Average (in milliseconds)
+	                         199563
+	                                      203375
+	                                                      198918
+	
+
+Conclusion:
+We conclude that a simple array requires the least amount of time to add its elements. Therefore the one that performs the best out of the three types of list and the one that we recommend to designers. However, this is true only in this case when the number of all the elements is known, since it's going to use the right amount of memory without any waste. However, if the number of elements can change overtime or is unknown we have the choice between LinkedList or ArrayList. However, these two types of data structure have their own pros and cons. 
+When comparing the time it takes both LinkedList and ArrayList to insert, add and remove an item. LinkedList comes on top. That is due to the fact that you don't need to shift everything unlike an ArrayList. Whereas the process of accessing a certain index in LinkedList is slower than in ArrayList. Next, we have the implementation process that is longer in a linked list than in an ArrayList. The implementation process in the latter list is based on the concept of dynamically resizing the array, which means that you can add or remove any element from the array whenever and wherever.
+Moreover, another major difference in which LinkedList holds an upper hand is the fact that it implements both of the two interfaces List and Queue, whenArrayList can only implement the List interface. Finally, when it comes to memory usage, LinkedList has the highest one. The reason behind that is that  every node in a LinkedList stores two references while an ArrayList holds only data and its index.
